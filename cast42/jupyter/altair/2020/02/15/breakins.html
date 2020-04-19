@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Evolution of burglary in Leuven. Is the trend downwards ? | Blog of cast42</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Evolution of burglary in Leuven. Is the trend downwards ?" />
+<meta name="author" content="Lode Nachtergaele" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Evolution of burglary in Leuven. Is the trend downwards ?" />
+<meta property="og:description" content="Evolution of burglary in Leuven. Is the trend downwards ?" />
+<link rel="canonical" href="https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html" />
+<meta property="og:url" content="https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html" />
+<meta property="og:site_name" content="Blog of cast42" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-15T00:00:00-06:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Lode Nachtergaele"},"description":"Evolution of burglary in Leuven. Is the trend downwards ?","@type":"BlogPosting","headline":"Evolution of burglary in Leuven. Is the trend downwards ?","dateModified":"2020-02-15T00:00:00-06:00","datePublished":"2020-02-15T00:00:00-06:00","url":"https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://cast42.github.io/blog/feed.xml" title="Blog of cast42" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-156881747-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Evolution of burglary in Leuven. Is the trend downwards ? | Blog of cast42</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Evolution of burglary in Leuven. Is the trend downwards ?" />
+<meta name="author" content="Lode Nachtergaele" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Evolution of burglary in Leuven. Is the trend downwards ?" />
+<meta property="og:description" content="Evolution of burglary in Leuven. Is the trend downwards ?" />
+<link rel="canonical" href="https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html" />
+<meta property="og:url" content="https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html" />
+<meta property="og:site_name" content="Blog of cast42" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-15T00:00:00-06:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Lode Nachtergaele"},"description":"Evolution of burglary in Leuven. Is the trend downwards ?","@type":"BlogPosting","headline":"Evolution of burglary in Leuven. Is the trend downwards ?","dateModified":"2020-02-15T00:00:00-06:00","datePublished":"2020-02-15T00:00:00-06:00","url":"https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://cast42.github.io/blog/cast42/jupyter/altair/2020/02/15/breakins.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://cast42.github.io/blog/feed.xml" title="Blog of cast42" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-156881747-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Blog of cast42</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Evolution of burglary in Leuven. Is the trend downwards ?</h1><p class="page-description">Evolution of burglary in Leuven. Is the trend downwards ?</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-15T00:00:00-06:00" itemprop="datePublished">
+        Feb 15, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Lode Nachtergaele</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#cast42">cast42</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#altair">altair</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/cast42/blog/tree/master/_notebooks/2020-02-15-breakins.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/cast42/blog/master?filepath=_notebooks%2F2020-02-15-breakins.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/cast42/blog/blob/master/_notebooks/2020-02-15-breakins.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Linear-regression">Linear regression </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-02-15-breakins.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The local police shared <a href="https://www.politie.be/5388/nieuws/inbraken-op-leuvens-grondgebied-zijn-in-2019-opnieuw-gedaald">a graph</a> with the number of break-ins in Leuven per year.  The article shows a graph with a downwards trendline. Can we conclude that the number of breakins is showing a downward trend based on those numbers? Let's construct a dataframe with the data from the graph.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'year_int'</span><span class="p">:[</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">2020</span><span class="p">)],</span> 
+                  <span class="s1">'breakins'</span><span class="p">:[</span><span class="mi">1133</span><span class="p">,</span><span class="mi">834</span><span class="p">,</span><span class="mi">953</span><span class="p">,</span><span class="mi">891</span><span class="p">,</span><span class="mi">1006</span><span class="p">,</span><span class="mi">1218</span><span class="p">,</span><span class="mi">992</span><span class="p">,</span><span class="mi">1079</span><span class="p">,</span><span class="mi">1266</span><span class="p">,</span><span class="mi">1112</span><span class="p">,</span><span class="mi">713</span><span class="p">,</span><span class="mi">669</span><span class="p">,</span><span class="mi">730</span><span class="p">,</span><span class="mi">644</span><span class="p">]})</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'year_int'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'%Y'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'breakins'</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s1">'breakins'</span>
+<span class="p">)</span>
+<span class="n">points</span> <span class="o">+</span> <span class="n">points</span><span class="o">.</span><span class="n">transform_regression</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'breakins'</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Regression trend on the number breakins per year in Leuven'</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-649b49ee9d1f44799a0e200be12c8f06"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-649b49ee9d1f44799a0e200be12c8f06") {
+      outputDiv = document.getElementById("altair-viz-649b49ee9d1f44799a0e200be12c8f06");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}}, {"mark": {"type": "line", "color": "green"}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}, "title": "Regression trend on the number breakins per year in Leuven", "transform": [{"on": "year", "regression": "breakins"}]}], "data": {"name": "data-e69c4a4577c6a9d2a03c89854c9a4599"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-e69c4a4577c6a9d2a03c89854c9a4599": [{"year_int": 2006, "breakins": 1133, "year": "2006-01-01T00:00:00"}, {"year_int": 2007, "breakins": 834, "year": "2007-01-01T00:00:00"}, {"year_int": 2008, "breakins": 953, "year": "2008-01-01T00:00:00"}, {"year_int": 2009, "breakins": 891, "year": "2009-01-01T00:00:00"}, {"year_int": 2010, "breakins": 1006, "year": "2010-01-01T00:00:00"}, {"year_int": 2011, "breakins": 1218, "year": "2011-01-01T00:00:00"}, {"year_int": 2012, "breakins": 992, "year": "2012-01-01T00:00:00"}, {"year_int": 2013, "breakins": 1079, "year": "2013-01-01T00:00:00"}, {"year_int": 2014, "breakins": 1266, "year": "2014-01-01T00:00:00"}, {"year_int": 2015, "breakins": 1112, "year": "2015-01-01T00:00:00"}, {"year_int": 2016, "breakins": 713, "year": "2016-01-01T00:00:00"}, {"year_int": 2017, "breakins": 669, "year": "2017-01-01T00:00:00"}, {"year_int": 2018, "breakins": 730, "year": "2018-01-01T00:00:00"}, {"year_int": 2019, "breakins": 644, "year": "2019-01-01T00:00:00"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The article claims that the number of breakins stabilizes the last years. Let's perform a local regression to check that.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://opendatascience.com/local-regression-in-python</span>
+<span class="c1"># Loess: https://gist.github.com/AllenDowney/818f6153ef316aee80467c51faee80f8</span>
+<span class="n">points</span> <span class="o">+</span> <span class="n">points</span><span class="o">.</span><span class="n">transform_loess</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'breakins'</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Local regression trend on the number breakins per year in Leuven'</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-524d27ed46b142359cdc597a05a024eb"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-524d27ed46b142359cdc597a05a024eb") {
+      outputDiv = document.getElementById("altair-viz-524d27ed46b142359cdc597a05a024eb");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "point": true}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}}, {"mark": {"type": "line", "color": "green"}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}, "title": "Local regression trend on the number breakins per year in Leuven", "transform": [{"loess": "breakins", "on": "year"}]}], "data": {"name": "data-e69c4a4577c6a9d2a03c89854c9a4599"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-e69c4a4577c6a9d2a03c89854c9a4599": [{"year_int": 2006, "breakins": 1133, "year": "2006-01-01T00:00:00"}, {"year_int": 2007, "breakins": 834, "year": "2007-01-01T00:00:00"}, {"year_int": 2008, "breakins": 953, "year": "2008-01-01T00:00:00"}, {"year_int": 2009, "breakins": 891, "year": "2009-01-01T00:00:00"}, {"year_int": 2010, "breakins": 1006, "year": "2010-01-01T00:00:00"}, {"year_int": 2011, "breakins": 1218, "year": "2011-01-01T00:00:00"}, {"year_int": 2012, "breakins": 992, "year": "2012-01-01T00:00:00"}, {"year_int": 2013, "breakins": 1079, "year": "2013-01-01T00:00:00"}, {"year_int": 2014, "breakins": 1266, "year": "2014-01-01T00:00:00"}, {"year_int": 2015, "breakins": 1112, "year": "2015-01-01T00:00:00"}, {"year_int": 2016, "breakins": 713, "year": "2016-01-01T00:00:00"}, {"year_int": 2017, "breakins": 669, "year": "2017-01-01T00:00:00"}, {"year_int": 2018, "breakins": 730, "year": "2018-01-01T00:00:00"}, {"year_int": 2019, "breakins": 644, "year": "2019-01-01T00:00:00"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But what about the trend line? Are we sure the trend is negative ? Bring in the code based on the blogpost <a href="https://erikbern.com/2018/10/08/the-hackers-guide-to-uncertainty-estimates.html">The hacker's guide to uncertainty estimates</a> to estimate the uncertainty.:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code from: https://erikbern.com/2018/10/08/the-hackers-guide-to-uncertainty-estimates.html</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">k</span> <span class="o">*</span> <span class="n">xs</span> <span class="o">+</span> <span class="n">m</span>
+
+<span class="k">def</span> <span class="nf">neg_log_likelihood</span><span class="p">(</span><span class="n">tup</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">):</span>
+    <span class="c1"># Since sigma &gt; 0, we use use log(sigma) as the parameter instead.</span>
+    <span class="c1"># That way we have an unconstrained problem.</span>
+    <span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">log_sigma</span> <span class="o">=</span> <span class="n">tup</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_sigma</span><span class="p">)</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">ys</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> \
+        <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">confidence_bands</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">nr_bootstrap</span><span class="p">):</span>
+    <span class="n">curves</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">xys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nr_bootstrap</span><span class="p">):</span>
+        <span class="c1"># sample with replacement</span>
+        <span class="n">bootstrap</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">xys</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">xys</span><span class="p">]</span>
+        <span class="n">xs_bootstrap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">bootstrap</span><span class="p">])</span>
+        <span class="n">ys_bootstrap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">bootstrap</span><span class="p">])</span>
+        <span class="n">k_hat</span><span class="p">,</span> <span class="n">m_hat</span><span class="p">,</span> <span class="n">log_sigma_hat</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+          <span class="n">neg_log_likelihood</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">xs_bootstrap</span><span class="p">,</span> <span class="n">ys_bootstrap</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">curves</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+          <span class="n">model</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">k_hat</span><span class="p">,</span> <span class="n">m_hat</span><span class="p">)</span> <span class="o">+</span>
+          <span class="c1"># Note what's going on here: we're _adding_ the random term</span>
+          <span class="c1"># to the predictions!</span>
+          <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_sigma_hat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">curves</span><span class="p">,</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a plot with a confidence band</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'lo'</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'hi'</span><span class="p">]</span> <span class="o">=</span> <span class="n">confidence_bands</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">'breakins'</span><span class="p">],</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ci</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'year:T'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'lo:Q'</span><span class="p">),</span>
+    <span class="n">y2</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y2</span><span class="p">(</span><span class="s1">'hi:Q'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">'lightblue'</span><span class="p">),</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'breakins'</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s1">'breakins'</span>
+<span class="p">)</span>
+<span class="n">ci</span> <span class="o">+</span> <span class="n">chart</span>  <span class="o">+</span> <span class="n">chart</span><span class="o">.</span><span class="n">transform_regression</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'breakins'</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'95% Confidence band of the number of breakins per year in Leuven'</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-56dc093b04d8402a94d0ac71f2593c00"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-56dc093b04d8402a94d0ac71f2593c00") {
+      outputDiv = document.getElementById("altair-viz-56dc093b04d8402a94d0ac71f2593c00");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "area", "encoding": {"color": {"value": "lightblue"}, "opacity": {"value": 0.6}, "x": {"type": "temporal", "field": "year", "title": ""}, "y": {"type": "quantitative", "field": "lo"}, "y2": {"field": "hi", "title": ""}}}, {"mark": {"type": "line", "point": true}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}}, {"mark": {"type": "line", "color": "red"}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}, "title": "95% Confidence band of the number of breakins per year in Leuven", "transform": [{"on": "year", "regression": "breakins"}]}], "data": {"name": "data-8fd2b6cf615cc0d07dec80616bd3be4e"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-8fd2b6cf615cc0d07dec80616bd3be4e": [{"year_int": 2006, "breakins": 1133, "year": "2006-01-01T00:00:00", "lo": 682.3099189747738, "hi": 1440.1937739145749}, {"year_int": 2007, "breakins": 834, "year": "2007-01-01T00:00:00", "lo": 827.6367340730125, "hi": 1486.4533262933012}, {"year_int": 2008, "breakins": 953, "year": "2008-01-01T00:00:00", "lo": 767.7635624924901, "hi": 1413.1424597103937}, {"year_int": 2009, "breakins": 891, "year": "2009-01-01T00:00:00", "lo": 790.4391898489782, "hi": 1419.3697631793243}, {"year_int": 2010, "breakins": 1006, "year": "2010-01-01T00:00:00", "lo": 708.9776311994685, "hi": 1343.5757675169857}, {"year_int": 2011, "breakins": 1218, "year": "2011-01-01T00:00:00", "lo": 727.1312799998013, "hi": 1309.4075604214133}, {"year_int": 2012, "breakins": 992, "year": "2012-01-01T00:00:00", "lo": 648.99978279176, "hi": 1290.1317136935718}, {"year_int": 2013, "breakins": 1079, "year": "2013-01-01T00:00:00", "lo": 654.8634472984102, "hi": 1235.404320558902}, {"year_int": 2014, "breakins": 1266, "year": "2014-01-01T00:00:00", "lo": 610.3003882798392, "hi": 1215.073440406832}, {"year_int": 2015, "breakins": 1112, "year": "2015-01-01T00:00:00", "lo": 577.2201952999367, "hi": 1261.770162301932}, {"year_int": 2016, "breakins": 713, "year": "2016-01-01T00:00:00", "lo": 593.6374616517471, "hi": 1220.5302754770032}, {"year_int": 2017, "breakins": 669, "year": "2017-01-01T00:00:00", "lo": 549.4776941065223, "hi": 1225.3267389185412}, {"year_int": 2018, "breakins": 730, "year": "2018-01-01T00:00:00", "lo": 506.8580347349176, "hi": 1102.1741859626663}, {"year_int": 2019, "breakins": 644, "year": "2019-01-01T00:00:00", "lo": 508.7175615577154, "hi": 1180.8263041098646}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On the above chart, we see that a possitive trend might be possible as well.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Linear-regression">
+<a class="anchor" href="#Linear-regression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linear regression<a class="anchor-link" href="#Linear-regression"> </a>
+</h1>
+<p>Let's perform a linear regression with statsmodel to calculate the confidence interval on the slope of the regression line.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">'breakins ~ index'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">params</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Intercept    1096.314286
+index         -23.169231
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The most likely slope of the trend line is 23.17 breakins per year. But how sure are we that the trend is heading down ?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\lnh6dt5\AppData\Local\Continuum\anaconda3\lib\site-packages\scipy\stats\stats.py:1535: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=14
+  "anyway, n=%i" % int(n))
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>        <td>breakins</td>     <th>  R-squared:         </th> <td>   0.223</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.159</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   3.451</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sun, 19 Apr 2020</td> <th>  Prob (F-statistic):</th>  <td>0.0879</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>10:26:45</td>     <th>  Log-Likelihood:    </th> <td> -92.105</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>    14</td>      <th>  AIC:               </th> <td>   188.2</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>    12</td>      <th>  BIC:               </th> <td>   189.5</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P&gt;|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th> <td> 1096.3143</td> <td>   95.396</td> <td>   11.492</td> <td> 0.000</td> <td>  888.465</td> <td> 1304.164</td>
+</tr>
+<tr>
+  <th>index</th>     <td>  -23.1692</td> <td>   12.472</td> <td>   -1.858</td> <td> 0.088</td> <td>  -50.344</td> <td>    4.006</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 1.503</td> <th>  Durbin-Watson:     </th> <td>   1.035</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.472</td> <th>  Jarque-Bera (JB):  </th> <td>   1.196</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.577</td> <th>  Prob(JB):          </th> <td>   0.550</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.153</td> <th>  Cond. No.          </th> <td>    14.7</td>
+</tr>
+</table>
+<br><br>Warnings:<br>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The analysis reveals that the slope of the best fitting regression line is 23 breakins less per year. However, the confidence interval of the trend is between -50.344 and 4.006. Also the p)value of the regression coefficient is 0.088. Meaning we have eight percent chance that the negative trend is by accident. Hence, based on the current data we are not 95% percent sure the trend is downwards. Hence we can not conclude, based on this data, that there is a negative trend. This corresponds with the width of the 95% certainty band drawn that allows for an upward trend line:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here are the confidence intervals of the regression</span>
+<span class="n">results</span><span class="o">.</span><span class="n">conf_int</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>888.464586</td>
+      <td>1304.163986</td>
+    </tr>
+    <tr>
+      <th>index</th>
+      <td>-50.344351</td>
+      <td>4.005889</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_low</span>  <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">'Intercept'</span><span class="p">]</span> <span class="c1"># ?ost likely value of the intercept</span>
+<span class="n">y_high</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">'Intercept'</span><span class="p">]</span> <span class="o">+</span> <span class="n">results</span><span class="o">.</span><span class="n">conf_int</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'index'</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Value of upward trend for the last year</span>
+<span class="n">df_upward_trend</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'year'</span><span class="p">:[</span><span class="n">df</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> 
+                                <span class="s1">'breakins'</span><span class="p">:[</span><span class="n">y_low</span><span class="p">,</span> <span class="n">y_high</span><span class="p">]})</span>
+<span class="n">possible_upwards_trend</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_upward_trend</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">,</span>
+    <span class="n">strokeDash</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">'year:T'</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'breakins:Q'</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Number of breakins per year'</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'breakins'</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s1">'breakins'</span><span class="p">)</span>
+<span class="p">(</span><span class="n">ci</span> <span class="o">+</span> <span class="n">points</span>  <span class="o">+</span> <span class="n">points</span><span class="o">.</span><span class="n">transform_regression</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'breakins'</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span> 
+              <span class="o">+</span> <span class="n">possible_upwards_trend</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Trend analysis on the number of breakins per year in Leuven, Belgium'</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-9136ba2616714a16adfdcaf66be8277b"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9136ba2616714a16adfdcaf66be8277b") {
+      outputDiv = document.getElementById("altair-viz-9136ba2616714a16adfdcaf66be8277b");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "area", "encoding": {"color": {"value": "lightblue"}, "opacity": {"value": 0.6}, "x": {"type": "temporal", "field": "year", "title": ""}, "y": {"type": "quantitative", "field": "lo"}, "y2": {"field": "hi", "title": ""}}}, {"mark": {"type": "line", "point": true}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}}, {"mark": {"type": "line", "color": "red"}, "encoding": {"tooltip": {"type": "quantitative", "field": "breakins"}, "x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins"}}, "transform": [{"on": "year", "regression": "breakins"}]}, {"data": {"name": "data-4de61dc9bf5700a168cfe5e53e79ee67"}, "mark": {"type": "line", "color": "green", "strokeDash": [10, 10]}, "encoding": {"x": {"type": "temporal", "field": "year"}, "y": {"type": "quantitative", "field": "breakins", "title": "Number of breakins per year"}}}], "data": {"name": "data-8fd2b6cf615cc0d07dec80616bd3be4e"}, "title": "Trend analysis on the number of breakins per year in Leuven, Belgium", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-8fd2b6cf615cc0d07dec80616bd3be4e": [{"year_int": 2006, "breakins": 1133, "year": "2006-01-01T00:00:00", "lo": 682.3099189747738, "hi": 1440.1937739145749}, {"year_int": 2007, "breakins": 834, "year": "2007-01-01T00:00:00", "lo": 827.6367340730125, "hi": 1486.4533262933012}, {"year_int": 2008, "breakins": 953, "year": "2008-01-01T00:00:00", "lo": 767.7635624924901, "hi": 1413.1424597103937}, {"year_int": 2009, "breakins": 891, "year": "2009-01-01T00:00:00", "lo": 790.4391898489782, "hi": 1419.3697631793243}, {"year_int": 2010, "breakins": 1006, "year": "2010-01-01T00:00:00", "lo": 708.9776311994685, "hi": 1343.5757675169857}, {"year_int": 2011, "breakins": 1218, "year": "2011-01-01T00:00:00", "lo": 727.1312799998013, "hi": 1309.4075604214133}, {"year_int": 2012, "breakins": 992, "year": "2012-01-01T00:00:00", "lo": 648.99978279176, "hi": 1290.1317136935718}, {"year_int": 2013, "breakins": 1079, "year": "2013-01-01T00:00:00", "lo": 654.8634472984102, "hi": 1235.404320558902}, {"year_int": 2014, "breakins": 1266, "year": "2014-01-01T00:00:00", "lo": 610.3003882798392, "hi": 1215.073440406832}, {"year_int": 2015, "breakins": 1112, "year": "2015-01-01T00:00:00", "lo": 577.2201952999367, "hi": 1261.770162301932}, {"year_int": 2016, "breakins": 713, "year": "2016-01-01T00:00:00", "lo": 593.6374616517471, "hi": 1220.5302754770032}, {"year_int": 2017, "breakins": 669, "year": "2017-01-01T00:00:00", "lo": 549.4776941065223, "hi": 1225.3267389185412}, {"year_int": 2018, "breakins": 730, "year": "2018-01-01T00:00:00", "lo": 506.8580347349176, "hi": 1102.1741859626663}, {"year_int": 2019, "breakins": 644, "year": "2019-01-01T00:00:00", "lo": 508.7175615577154, "hi": 1180.8263041098646}], "data-4de61dc9bf5700a168cfe5e53e79ee67": [{"year": "2006-01-01T00:00:00", "breakins": 1096.314285714286}, {"year": "2019-01-01T00:00:00", "breakins": 1152.3967336789888}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the above graph, we see that a slight positive trend (green dashed line) is in the 95% confidence band on the regression coefficient. We are not sure that the trend on the number of breakins is downwards.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="cast42/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/cast42/jupyter/altair/2020/02/15/breakins.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Public space to share things of interest with the world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/cast42" title="cast42"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/cast42" title="cast42"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
