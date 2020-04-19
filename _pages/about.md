@@ -4,8 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-# About
-
 My name is Lode Nachtergaele.
 I'm an engineer by training, and currently hold the position as data scientist
 at
