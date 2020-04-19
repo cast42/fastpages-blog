@@ -4,7 +4,13 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+# About
+
+My name is Lode Nachtergaele.
+I'm an engineer by training, and currently hold the position as data scientist
+at
+[Colruyt Group](https://www.colruytgroup.com/wps/portal/cg/en/home) (a retailer in Belgium), where I spend time on
+writing notebooks in Python.
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
