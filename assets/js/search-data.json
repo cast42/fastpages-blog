@@ -35,6 +35,17 @@
   
     
         ,"post3": {
+            "title": "Bullet chart in python Altair",
+            "content": "In the article &quot;Bullet Charts - What Is It And How To Use It&quot; I learned about Bullet charts. It&#39;s a specific kind of barchart that must convey the state of a measure or KPI. The goal is to see in a glance if the target is met. Here is an example bullet chart from the article: . # This causes issues to: # from IPython.display import Image # Image(&#39;https://jscharting.com/blog/bullet-charts/images/bullet_components.png&#39;) . . # &lt;img src=&quot;https://jscharting.com/blog/bullet-charts/images/bullet_components.png&quot; alt=&quot;Bullet chart&quot; style=&quot;width: 200px;&quot;/&gt; . Below is some Python code that generates bullets graphs using the Altair library. . import altair as alt import pandas as pd df = pd.DataFrame.from_records([ {&quot;title&quot;:&quot;Revenue&quot;,&quot;subtitle&quot;:&quot;US$, in thousands&quot;,&quot;ranges&quot;:[150,225,300],&quot;measures&quot;:[220,270],&quot;markers&quot;:[250]}, {&quot;title&quot;:&quot;Profit&quot;,&quot;subtitle&quot;:&quot;%&quot;,&quot;ranges&quot;:[20,25,30],&quot;measures&quot;:[21,23],&quot;markers&quot;:[26]}, {&quot;title&quot;:&quot;Order Size&quot;,&quot;subtitle&quot;:&quot;US$, average&quot;,&quot;ranges&quot;:[350,500,600],&quot;measures&quot;:[100,320],&quot;markers&quot;:[550]}, {&quot;title&quot;:&quot;New Customers&quot;,&quot;subtitle&quot;:&quot;count&quot;,&quot;ranges&quot;:[1400,2000,2500],&quot;measures&quot;:[1000,1650],&quot;markers&quot;:[2100]}, {&quot;title&quot;:&quot;Satisfaction&quot;,&quot;subtitle&quot;:&quot;out of 5&quot;,&quot;ranges&quot;:[3.5,4.25,5],&quot;measures&quot;:[3.2,4.7],&quot;markers&quot;:[4.4]} ]) alt.layer( alt.Chart().mark_bar(color=&#39;#eee&#39;).encode(alt.X(&quot;ranges[2]:Q&quot;, scale=alt.Scale(nice=False), title=None)), alt.Chart().mark_bar(color=&#39;#ddd&#39;).encode(x=&quot;ranges[1]:Q&quot;), alt.Chart().mark_bar(color=&#39;#bbb&#39;).encode(x=&quot;ranges[0]:Q&quot;), alt.Chart().mark_bar(color=&#39;steelblue&#39;, size=10).encode(x=&#39;measures[0]:Q&#39;), alt.Chart().mark_tick(color=&#39;black&#39;, size=12).encode(x=&#39;markers[0]:Q&#39;), data=df ).facet( row=alt.Row(&quot;title:O&quot;, title=&#39;&#39;) ).resolve_scale( x=&#39;independent&#39; ) .",
+            "url": "https://cast42.github.io/blog/cast42/jupyter/data%20visualisation/altair/2020/01/29/bullet-chart-altair.html",
+            "relUrl": "/cast42/jupyter/data%20visualisation/altair/2020/01/29/bullet-chart-altair.html",
+            "date": " • Jan 29, 2020"
+        }
+        
+    
+  
+    
+        ,"post4": {
             "title": "Simple Notebook with interactive Altair graph",
             "content": "Test fast template notebook posts . import altair as alt . Make an Altair graph . from vega_datasets import data iris = data.iris() alt.Chart(iris).mark_point().encode( x=&#39;petalLength&#39;, y=&#39;petalWidth&#39;, color=&#39;species&#39;, tooltip=&#39;species&#39; ).interactive() . Enjoy :) .",
             "url": "https://cast42.github.io/blog/cast42/jupyter/covid19/belgium/altair/2020/01/28/Altair.html",
@@ -45,7 +56,7 @@
     
   
     
-        ,"post4": {
+        ,"post5": {
             "title": "An Example Markdown Post",
             "content": "Example Markdown Post . Basic setup . Jekyll requires blog post files to be named according to the following format: . YEAR-MONTH-DAY-filename.md . Where YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and filename is whatever file name you choose, to remind yourself what this post is about. .md is the file extension for markdown files. . The first line of the file should start with a single hash character, then a space, then your title. This is how you create a “level 1 heading” in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line ## File names above. . Basic formatting . You can use italics, bold, code font text, and create links. Here’s a footnote 1. Here’s a horizontal rule: . . Lists . Here’s a list: . item 1 | item 2 | . And a numbered list: . item 1 | item 2 | Boxes and stuff . This is a quotation . . You can include alert boxes …and… . . You can include info boxes Images . . Code . You can format text and code per usual . General preformatted text: . # Do a thing do_thing() . Python code and output: . # Prints &#39;2&#39; print(1+1) . 2 . Formatting text as shell commands: . echo &quot;hello world&quot; ./some_script.sh --option &quot;value&quot; wget https://example.com/cat_photo1.png . Formatting text as YAML: . key: value - another_key: &quot;another value&quot; . Tables . Column 1 Column 2 . A thing | Another thing | . Tweetcards . Altair 4.0 is released! https://t.co/PCyrIOTcvvTry it with: pip install -U altairThe full list of changes is at https://t.co/roXmzcsT58 ...read on for some highlights. pic.twitter.com/vWJ0ZveKbZ . &mdash; Jake VanderPlas (@jakevdp) December 11, 2019 Footnotes . This is the footnote. &#8617; . |",
             "url": "https://cast42.github.io/blog/markdown/2020/01/14/test-markdown-post.html",
