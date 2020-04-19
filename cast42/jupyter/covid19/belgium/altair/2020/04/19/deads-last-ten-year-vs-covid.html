@@ -361,12 +361,12 @@ window.onload = wrap_img;
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-ed0af9678fa34806994db05660273acf"></div>
+<div id="altair-viz-957400b186db4e43976be5ae6c5c4659"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ed0af9678fa34806994db05660273acf") {
-      outputDiv = document.getElementById("altair-viz-ed0af9678fa34806994db05660273acf");
+    if (outputDiv.id !== "altair-viz-957400b186db4e43976be5ae6c5c4659") {
+      outputDiv = document.getElementById("altair-viz-957400b186db4e43976be5ae6c5c4659");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -649,7 +649,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We need to do some type conversiontions. We cast 'Overlijdens' to integer. Next, we add the number of the day.</p>
+<p>We need to do some type convertions. We cast 'Overlijdens' to integer. Next, we add the number of the day.</p>
 
 </div>
 </div>
@@ -672,6 +672,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Plot the data:</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -679,16 +687,89 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add day of the year to the dataframe</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dead_2008_2018</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_plot</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Dag'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'MS_NUM_DEATHS'</span><span class="p">)</span>
+<span class="n">dead_2008_2018</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-d74b4afc482c4e0ea29c6e3d32ced8d3"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-d74b4afc482c4e0ea29c6e3d32ced8d3") {
+      outputDiv = document.getElementById("altair-viz-d74b4afc482c4e0ea29c6e3d32ced8d3");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-f7bb12e1b3829e6de789724df6cc6687"}, "mark": "line", "encoding": {"x": {"type": "quantitative", "field": "Dag"}, "y": {"type": "quantitative", "field": "MS_NUM_DEATHS"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-f7bb12e1b3829e6de789724df6cc6687": [{"Dag": 1, "MS_NUM_DEATHS": 328.09090909090907}, {"Dag": 2, "MS_NUM_DEATHS": 335.90909090909093}, {"Dag": 3, "MS_NUM_DEATHS": 340.90909090909093}, {"Dag": 4, "MS_NUM_DEATHS": 332.54545454545456}, {"Dag": 5, "MS_NUM_DEATHS": 334.45454545454544}, {"Dag": 6, "MS_NUM_DEATHS": 325.8181818181818}, {"Dag": 7, "MS_NUM_DEATHS": 344.90909090909093}, {"Dag": 8, "MS_NUM_DEATHS": 340.3636363636364}, {"Dag": 9, "MS_NUM_DEATHS": 329.27272727272725}, {"Dag": 10, "MS_NUM_DEATHS": 341.54545454545456}, {"Dag": 11, "MS_NUM_DEATHS": 334.3636363636364}, {"Dag": 12, "MS_NUM_DEATHS": 348.3636363636364}, {"Dag": 13, "MS_NUM_DEATHS": 342.09090909090907}, {"Dag": 14, "MS_NUM_DEATHS": 337.90909090909093}, {"Dag": 15, "MS_NUM_DEATHS": 338.0}, {"Dag": 16, "MS_NUM_DEATHS": 334.72727272727275}, {"Dag": 17, "MS_NUM_DEATHS": 325.45454545454544}, {"Dag": 18, "MS_NUM_DEATHS": 335.0}, {"Dag": 19, "MS_NUM_DEATHS": 336.90909090909093}, {"Dag": 20, "MS_NUM_DEATHS": 337.09090909090907}, {"Dag": 21, "MS_NUM_DEATHS": 347.6363636363636}, {"Dag": 22, "MS_NUM_DEATHS": 331.54545454545456}, {"Dag": 23, "MS_NUM_DEATHS": 342.27272727272725}, {"Dag": 24, "MS_NUM_DEATHS": 328.0}, {"Dag": 25, "MS_NUM_DEATHS": 332.3636363636364}, {"Dag": 26, "MS_NUM_DEATHS": 327.1818181818182}, {"Dag": 27, "MS_NUM_DEATHS": 324.45454545454544}, {"Dag": 28, "MS_NUM_DEATHS": 333.3636363636364}, {"Dag": 29, "MS_NUM_DEATHS": 341.27272727272725}, {"Dag": 30, "MS_NUM_DEATHS": 339.0}, {"Dag": 31, "MS_NUM_DEATHS": 347.6363636363636}, {"Dag": 32, "MS_NUM_DEATHS": 346.45454545454544}, {"Dag": 33, "MS_NUM_DEATHS": 337.09090909090907}, {"Dag": 34, "MS_NUM_DEATHS": 348.6363636363636}, {"Dag": 35, "MS_NUM_DEATHS": 340.54545454545456}, {"Dag": 36, "MS_NUM_DEATHS": 342.09090909090907}, {"Dag": 37, "MS_NUM_DEATHS": 337.09090909090907}, {"Dag": 38, "MS_NUM_DEATHS": 335.8181818181818}, {"Dag": 39, "MS_NUM_DEATHS": 336.3636363636364}, {"Dag": 40, "MS_NUM_DEATHS": 344.0}, {"Dag": 41, "MS_NUM_DEATHS": 337.3636363636364}, {"Dag": 42, "MS_NUM_DEATHS": 338.6363636363636}, {"Dag": 43, "MS_NUM_DEATHS": 334.45454545454544}, {"Dag": 44, "MS_NUM_DEATHS": 350.90909090909093}, {"Dag": 45, "MS_NUM_DEATHS": 338.3636363636364}, {"Dag": 46, "MS_NUM_DEATHS": 345.6363636363636}, {"Dag": 47, "MS_NUM_DEATHS": 341.6363636363636}, {"Dag": 48, "MS_NUM_DEATHS": 343.1818181818182}, {"Dag": 49, "MS_NUM_DEATHS": 340.54545454545456}, {"Dag": 50, "MS_NUM_DEATHS": 324.6363636363636}, {"Dag": 51, "MS_NUM_DEATHS": 336.09090909090907}, {"Dag": 52, "MS_NUM_DEATHS": 329.3636363636364}, {"Dag": 53, "MS_NUM_DEATHS": 347.1818181818182}, {"Dag": 54, "MS_NUM_DEATHS": 344.3636363636364}, {"Dag": 55, "MS_NUM_DEATHS": 338.0}, {"Dag": 56, "MS_NUM_DEATHS": 351.8181818181818}, {"Dag": 57, "MS_NUM_DEATHS": 337.27272727272725}, {"Dag": 58, "MS_NUM_DEATHS": 345.72727272727275}, {"Dag": 59, "MS_NUM_DEATHS": 343.1818181818182}, {"Dag": 60, "MS_NUM_DEATHS": 339.27272727272725}, {"Dag": 61, "MS_NUM_DEATHS": 326.45454545454544}, {"Dag": 62, "MS_NUM_DEATHS": 334.6363636363636}, {"Dag": 63, "MS_NUM_DEATHS": 329.3636363636364}, {"Dag": 64, "MS_NUM_DEATHS": 334.6363636363636}, {"Dag": 65, "MS_NUM_DEATHS": 335.72727272727275}, {"Dag": 66, "MS_NUM_DEATHS": 338.27272727272725}, {"Dag": 67, "MS_NUM_DEATHS": 336.0}, {"Dag": 68, "MS_NUM_DEATHS": 325.1818181818182}, {"Dag": 69, "MS_NUM_DEATHS": 329.27272727272725}, {"Dag": 70, "MS_NUM_DEATHS": 324.45454545454544}, {"Dag": 71, "MS_NUM_DEATHS": 326.6363636363636}, {"Dag": 72, "MS_NUM_DEATHS": 326.09090909090907}, {"Dag": 73, "MS_NUM_DEATHS": 317.09090909090907}, {"Dag": 74, "MS_NUM_DEATHS": 320.27272727272725}, {"Dag": 75, "MS_NUM_DEATHS": 324.0}, {"Dag": 76, "MS_NUM_DEATHS": 329.0}, {"Dag": 77, "MS_NUM_DEATHS": 312.72727272727275}, {"Dag": 78, "MS_NUM_DEATHS": 314.6363636363636}, {"Dag": 79, "MS_NUM_DEATHS": 309.0}, {"Dag": 80, "MS_NUM_DEATHS": 321.1818181818182}, {"Dag": 81, "MS_NUM_DEATHS": 308.6363636363636}, {"Dag": 82, "MS_NUM_DEATHS": 330.27272727272725}, {"Dag": 83, "MS_NUM_DEATHS": 310.0}, {"Dag": 84, "MS_NUM_DEATHS": 318.90909090909093}, {"Dag": 85, "MS_NUM_DEATHS": 300.6363636363636}, {"Dag": 86, "MS_NUM_DEATHS": 307.27272727272725}, {"Dag": 87, "MS_NUM_DEATHS": 305.6363636363636}, {"Dag": 88, "MS_NUM_DEATHS": 314.09090909090907}, {"Dag": 89, "MS_NUM_DEATHS": 312.0}, {"Dag": 90, "MS_NUM_DEATHS": 312.6363636363636}, {"Dag": 91, "MS_NUM_DEATHS": 306.45454545454544}, {"Dag": 92, "MS_NUM_DEATHS": 308.90909090909093}, {"Dag": 93, "MS_NUM_DEATHS": 304.0}, {"Dag": 94, "MS_NUM_DEATHS": 297.8181818181818}, {"Dag": 95, "MS_NUM_DEATHS": 297.1818181818182}, {"Dag": 96, "MS_NUM_DEATHS": 296.0}, {"Dag": 97, "MS_NUM_DEATHS": 311.1818181818182}, {"Dag": 98, "MS_NUM_DEATHS": 306.27272727272725}, {"Dag": 99, "MS_NUM_DEATHS": 293.45454545454544}, {"Dag": 100, "MS_NUM_DEATHS": 302.8181818181818}, {"Dag": 101, "MS_NUM_DEATHS": 300.09090909090907}, {"Dag": 102, "MS_NUM_DEATHS": 298.0}, {"Dag": 103, "MS_NUM_DEATHS": 293.54545454545456}, {"Dag": 104, "MS_NUM_DEATHS": 295.6363636363636}, {"Dag": 105, "MS_NUM_DEATHS": 294.1818181818182}, {"Dag": 106, "MS_NUM_DEATHS": 291.0}, {"Dag": 107, "MS_NUM_DEATHS": 290.45454545454544}, {"Dag": 108, "MS_NUM_DEATHS": 297.0}, {"Dag": 109, "MS_NUM_DEATHS": 290.90909090909093}, {"Dag": 110, "MS_NUM_DEATHS": 291.90909090909093}, {"Dag": 111, "MS_NUM_DEATHS": 291.6363636363636}, {"Dag": 112, "MS_NUM_DEATHS": 289.72727272727275}, {"Dag": 113, "MS_NUM_DEATHS": 288.72727272727275}, {"Dag": 114, "MS_NUM_DEATHS": 298.90909090909093}, {"Dag": 115, "MS_NUM_DEATHS": 294.90909090909093}, {"Dag": 116, "MS_NUM_DEATHS": 279.54545454545456}, {"Dag": 117, "MS_NUM_DEATHS": 284.0}, {"Dag": 118, "MS_NUM_DEATHS": 284.45454545454544}, {"Dag": 119, "MS_NUM_DEATHS": 274.8181818181818}, {"Dag": 120, "MS_NUM_DEATHS": 286.72727272727275}, {"Dag": 121, "MS_NUM_DEATHS": 277.6363636363636}, {"Dag": 122, "MS_NUM_DEATHS": 272.0}, {"Dag": 123, "MS_NUM_DEATHS": 285.0}, {"Dag": 124, "MS_NUM_DEATHS": 277.09090909090907}, {"Dag": 125, "MS_NUM_DEATHS": 282.09090909090907}, {"Dag": 126, "MS_NUM_DEATHS": 284.8181818181818}, {"Dag": 127, "MS_NUM_DEATHS": 283.1818181818182}, {"Dag": 128, "MS_NUM_DEATHS": 288.27272727272725}, {"Dag": 129, "MS_NUM_DEATHS": 283.09090909090907}, {"Dag": 130, "MS_NUM_DEATHS": 277.72727272727275}, {"Dag": 131, "MS_NUM_DEATHS": 291.72727272727275}, {"Dag": 132, "MS_NUM_DEATHS": 286.8181818181818}, {"Dag": 133, "MS_NUM_DEATHS": 280.3636363636364}, {"Dag": 134, "MS_NUM_DEATHS": 276.6363636363636}, {"Dag": 135, "MS_NUM_DEATHS": 282.27272727272725}, {"Dag": 136, "MS_NUM_DEATHS": 274.09090909090907}, {"Dag": 137, "MS_NUM_DEATHS": 273.27272727272725}, {"Dag": 138, "MS_NUM_DEATHS": 279.6363636363636}, {"Dag": 139, "MS_NUM_DEATHS": 268.72727272727275}, {"Dag": 140, "MS_NUM_DEATHS": 276.0}, {"Dag": 141, "MS_NUM_DEATHS": 273.45454545454544}, {"Dag": 142, "MS_NUM_DEATHS": 281.72727272727275}, {"Dag": 143, "MS_NUM_DEATHS": 285.1818181818182}, {"Dag": 144, "MS_NUM_DEATHS": 275.3636363636364}, {"Dag": 145, "MS_NUM_DEATHS": 280.54545454545456}, {"Dag": 146, "MS_NUM_DEATHS": 273.90909090909093}, {"Dag": 147, "MS_NUM_DEATHS": 274.90909090909093}, {"Dag": 148, "MS_NUM_DEATHS": 287.0}, {"Dag": 149, "MS_NUM_DEATHS": 283.09090909090907}, {"Dag": 150, "MS_NUM_DEATHS": 271.0}, {"Dag": 151, "MS_NUM_DEATHS": 272.6363636363636}, {"Dag": 152, "MS_NUM_DEATHS": 277.8181818181818}, {"Dag": 153, "MS_NUM_DEATHS": 281.6363636363636}, {"Dag": 154, "MS_NUM_DEATHS": 276.09090909090907}, {"Dag": 155, "MS_NUM_DEATHS": 280.27272727272725}, {"Dag": 156, "MS_NUM_DEATHS": 271.90909090909093}, {"Dag": 157, "MS_NUM_DEATHS": 273.8181818181818}, {"Dag": 158, "MS_NUM_DEATHS": 269.90909090909093}, {"Dag": 159, "MS_NUM_DEATHS": 273.45454545454544}, {"Dag": 160, "MS_NUM_DEATHS": 270.09090909090907}, {"Dag": 161, "MS_NUM_DEATHS": 271.72727272727275}, {"Dag": 162, "MS_NUM_DEATHS": 264.0}, {"Dag": 163, "MS_NUM_DEATHS": 267.54545454545456}, {"Dag": 164, "MS_NUM_DEATHS": 264.54545454545456}, {"Dag": 165, "MS_NUM_DEATHS": 262.6363636363636}, {"Dag": 166, "MS_NUM_DEATHS": 259.0}, {"Dag": 167, "MS_NUM_DEATHS": 267.45454545454544}, {"Dag": 168, "MS_NUM_DEATHS": 263.72727272727275}, {"Dag": 169, "MS_NUM_DEATHS": 267.54545454545456}, {"Dag": 170, "MS_NUM_DEATHS": 282.1818181818182}, {"Dag": 171, "MS_NUM_DEATHS": 265.45454545454544}, {"Dag": 172, "MS_NUM_DEATHS": 267.3636363636364}, {"Dag": 173, "MS_NUM_DEATHS": 277.27272727272725}, {"Dag": 174, "MS_NUM_DEATHS": 266.3636363636364}, {"Dag": 175, "MS_NUM_DEATHS": 275.0}, {"Dag": 176, "MS_NUM_DEATHS": 276.6363636363636}, {"Dag": 177, "MS_NUM_DEATHS": 268.3636363636364}, {"Dag": 178, "MS_NUM_DEATHS": 271.72727272727275}, {"Dag": 179, "MS_NUM_DEATHS": 285.27272727272725}, {"Dag": 180, "MS_NUM_DEATHS": 283.45454545454544}, {"Dag": 181, "MS_NUM_DEATHS": 269.8181818181818}, {"Dag": 182, "MS_NUM_DEATHS": 279.0}, {"Dag": 183, "MS_NUM_DEATHS": 286.27272727272725}, {"Dag": 184, "MS_NUM_DEATHS": 293.72727272727275}, {"Dag": 185, "MS_NUM_DEATHS": 273.90909090909093}, {"Dag": 186, "MS_NUM_DEATHS": 274.1818181818182}, {"Dag": 187, "MS_NUM_DEATHS": 276.09090909090907}, {"Dag": 188, "MS_NUM_DEATHS": 273.72727272727275}, {"Dag": 189, "MS_NUM_DEATHS": 267.90909090909093}, {"Dag": 190, "MS_NUM_DEATHS": 266.09090909090907}, {"Dag": 191, "MS_NUM_DEATHS": 281.09090909090907}, {"Dag": 192, "MS_NUM_DEATHS": 271.8181818181818}, {"Dag": 193, "MS_NUM_DEATHS": 267.27272727272725}, {"Dag": 194, "MS_NUM_DEATHS": 265.90909090909093}, {"Dag": 195, "MS_NUM_DEATHS": 255.63636363636363}, {"Dag": 196, "MS_NUM_DEATHS": 267.0}, {"Dag": 197, "MS_NUM_DEATHS": 261.90909090909093}, {"Dag": 198, "MS_NUM_DEATHS": 267.27272727272725}, {"Dag": 199, "MS_NUM_DEATHS": 259.6363636363636}, {"Dag": 200, "MS_NUM_DEATHS": 272.72727272727275}, {"Dag": 201, "MS_NUM_DEATHS": 272.54545454545456}, {"Dag": 202, "MS_NUM_DEATHS": 259.27272727272725}, {"Dag": 203, "MS_NUM_DEATHS": 265.45454545454544}, {"Dag": 204, "MS_NUM_DEATHS": 262.90909090909093}, {"Dag": 205, "MS_NUM_DEATHS": 271.27272727272725}, {"Dag": 206, "MS_NUM_DEATHS": 265.27272727272725}, {"Dag": 207, "MS_NUM_DEATHS": 267.45454545454544}, {"Dag": 208, "MS_NUM_DEATHS": 278.6363636363636}, {"Dag": 209, "MS_NUM_DEATHS": 280.3636363636364}, {"Dag": 210, "MS_NUM_DEATHS": 281.90909090909093}, {"Dag": 211, "MS_NUM_DEATHS": 268.27272727272725}, {"Dag": 212, "MS_NUM_DEATHS": 269.45454545454544}, {"Dag": 213, "MS_NUM_DEATHS": 271.6363636363636}, {"Dag": 214, "MS_NUM_DEATHS": 263.6363636363636}, {"Dag": 215, "MS_NUM_DEATHS": 277.0}, {"Dag": 216, "MS_NUM_DEATHS": 267.54545454545456}, {"Dag": 217, "MS_NUM_DEATHS": 269.54545454545456}, {"Dag": 218, "MS_NUM_DEATHS": 267.90909090909093}, {"Dag": 219, "MS_NUM_DEATHS": 276.8181818181818}, {"Dag": 220, "MS_NUM_DEATHS": 256.1818181818182}, {"Dag": 221, "MS_NUM_DEATHS": 261.1818181818182}, {"Dag": 222, "MS_NUM_DEATHS": 257.3636363636364}, {"Dag": 223, "MS_NUM_DEATHS": 256.6363636363636}, {"Dag": 224, "MS_NUM_DEATHS": 254.63636363636363}, {"Dag": 225, "MS_NUM_DEATHS": 262.09090909090907}, {"Dag": 226, "MS_NUM_DEATHS": 254.54545454545453}, {"Dag": 227, "MS_NUM_DEATHS": 249.9090909090909}, {"Dag": 228, "MS_NUM_DEATHS": 255.8181818181818}, {"Dag": 229, "MS_NUM_DEATHS": 251.54545454545453}, {"Dag": 230, "MS_NUM_DEATHS": 258.45454545454544}, {"Dag": 231, "MS_NUM_DEATHS": 262.72727272727275}, {"Dag": 232, "MS_NUM_DEATHS": 262.09090909090907}, {"Dag": 233, "MS_NUM_DEATHS": 263.09090909090907}, {"Dag": 234, "MS_NUM_DEATHS": 266.09090909090907}, {"Dag": 235, "MS_NUM_DEATHS": 271.6363636363636}, {"Dag": 236, "MS_NUM_DEATHS": 269.45454545454544}, {"Dag": 237, "MS_NUM_DEATHS": 257.45454545454544}, {"Dag": 238, "MS_NUM_DEATHS": 273.3636363636364}, {"Dag": 239, "MS_NUM_DEATHS": 256.72727272727275}, {"Dag": 240, "MS_NUM_DEATHS": 268.6363636363636}, {"Dag": 241, "MS_NUM_DEATHS": 268.3636363636364}, {"Dag": 242, "MS_NUM_DEATHS": 255.9090909090909}, {"Dag": 243, "MS_NUM_DEATHS": 259.1818181818182}, {"Dag": 244, "MS_NUM_DEATHS": 261.09090909090907}, {"Dag": 245, "MS_NUM_DEATHS": 254.63636363636363}, {"Dag": 246, "MS_NUM_DEATHS": 265.1818181818182}, {"Dag": 247, "MS_NUM_DEATHS": 261.54545454545456}, {"Dag": 248, "MS_NUM_DEATHS": 267.0}, {"Dag": 249, "MS_NUM_DEATHS": 259.3636363636364}, {"Dag": 250, "MS_NUM_DEATHS": 266.45454545454544}, {"Dag": 251, "MS_NUM_DEATHS": 262.45454545454544}, {"Dag": 252, "MS_NUM_DEATHS": 265.0}, {"Dag": 253, "MS_NUM_DEATHS": 264.72727272727275}, {"Dag": 254, "MS_NUM_DEATHS": 254.45454545454547}, {"Dag": 255, "MS_NUM_DEATHS": 261.6363636363636}, {"Dag": 256, "MS_NUM_DEATHS": 266.1818181818182}, {"Dag": 257, "MS_NUM_DEATHS": 266.72727272727275}, {"Dag": 258, "MS_NUM_DEATHS": 255.54545454545453}, {"Dag": 259, "MS_NUM_DEATHS": 262.6363636363636}, {"Dag": 260, "MS_NUM_DEATHS": 263.54545454545456}, {"Dag": 261, "MS_NUM_DEATHS": 268.09090909090907}, {"Dag": 262, "MS_NUM_DEATHS": 266.8181818181818}, {"Dag": 263, "MS_NUM_DEATHS": 260.72727272727275}, {"Dag": 264, "MS_NUM_DEATHS": 261.8181818181818}, {"Dag": 265, "MS_NUM_DEATHS": 274.6363636363636}, {"Dag": 266, "MS_NUM_DEATHS": 265.6363636363636}, {"Dag": 267, "MS_NUM_DEATHS": 261.1818181818182}, {"Dag": 268, "MS_NUM_DEATHS": 271.72727272727275}, {"Dag": 269, "MS_NUM_DEATHS": 277.72727272727275}, {"Dag": 270, "MS_NUM_DEATHS": 275.45454545454544}, {"Dag": 271, "MS_NUM_DEATHS": 266.72727272727275}, {"Dag": 272, "MS_NUM_DEATHS": 281.0}, {"Dag": 273, "MS_NUM_DEATHS": 278.1818181818182}, {"Dag": 274, "MS_NUM_DEATHS": 283.72727272727275}, {"Dag": 275, "MS_NUM_DEATHS": 278.09090909090907}, {"Dag": 276, "MS_NUM_DEATHS": 271.27272727272725}, {"Dag": 277, "MS_NUM_DEATHS": 279.3636363636364}, {"Dag": 278, "MS_NUM_DEATHS": 268.8181818181818}, {"Dag": 279, "MS_NUM_DEATHS": 270.3636363636364}, {"Dag": 280, "MS_NUM_DEATHS": 282.0}, {"Dag": 281, "MS_NUM_DEATHS": 284.90909090909093}, {"Dag": 282, "MS_NUM_DEATHS": 278.54545454545456}, {"Dag": 283, "MS_NUM_DEATHS": 280.27272727272725}, {"Dag": 284, "MS_NUM_DEATHS": 274.90909090909093}, {"Dag": 285, "MS_NUM_DEATHS": 275.45454545454544}, {"Dag": 286, "MS_NUM_DEATHS": 282.0}, {"Dag": 287, "MS_NUM_DEATHS": 273.54545454545456}, {"Dag": 288, "MS_NUM_DEATHS": 281.3636363636364}, {"Dag": 289, "MS_NUM_DEATHS": 281.09090909090907}, {"Dag": 290, "MS_NUM_DEATHS": 281.90909090909093}, {"Dag": 291, "MS_NUM_DEATHS": 279.09090909090907}, {"Dag": 292, "MS_NUM_DEATHS": 282.72727272727275}, {"Dag": 293, "MS_NUM_DEATHS": 291.72727272727275}, {"Dag": 294, "MS_NUM_DEATHS": 293.0}, {"Dag": 295, "MS_NUM_DEATHS": 282.3636363636364}, {"Dag": 296, "MS_NUM_DEATHS": 277.45454545454544}, {"Dag": 297, "MS_NUM_DEATHS": 283.1818181818182}, {"Dag": 298, "MS_NUM_DEATHS": 284.45454545454544}, {"Dag": 299, "MS_NUM_DEATHS": 288.45454545454544}, {"Dag": 300, "MS_NUM_DEATHS": 274.90909090909093}, {"Dag": 301, "MS_NUM_DEATHS": 283.6363636363636}, {"Dag": 302, "MS_NUM_DEATHS": 290.27272727272725}, {"Dag": 303, "MS_NUM_DEATHS": 288.09090909090907}, {"Dag": 304, "MS_NUM_DEATHS": 289.54545454545456}, {"Dag": 305, "MS_NUM_DEATHS": 281.72727272727275}, {"Dag": 306, "MS_NUM_DEATHS": 281.6363636363636}, {"Dag": 307, "MS_NUM_DEATHS": 278.8181818181818}, {"Dag": 308, "MS_NUM_DEATHS": 282.27272727272725}, {"Dag": 309, "MS_NUM_DEATHS": 286.90909090909093}, {"Dag": 310, "MS_NUM_DEATHS": 282.09090909090907}, {"Dag": 311, "MS_NUM_DEATHS": 289.54545454545456}, {"Dag": 312, "MS_NUM_DEATHS": 282.09090909090907}, {"Dag": 313, "MS_NUM_DEATHS": 287.0}, {"Dag": 314, "MS_NUM_DEATHS": 282.54545454545456}, {"Dag": 315, "MS_NUM_DEATHS": 280.0}, {"Dag": 316, "MS_NUM_DEATHS": 284.0}, {"Dag": 317, "MS_NUM_DEATHS": 287.0}, {"Dag": 318, "MS_NUM_DEATHS": 284.09090909090907}, {"Dag": 319, "MS_NUM_DEATHS": 278.6363636363636}, {"Dag": 320, "MS_NUM_DEATHS": 291.90909090909093}, {"Dag": 321, "MS_NUM_DEATHS": 287.8181818181818}, {"Dag": 322, "MS_NUM_DEATHS": 299.1818181818182}, {"Dag": 323, "MS_NUM_DEATHS": 287.27272727272725}, {"Dag": 324, "MS_NUM_DEATHS": 283.45454545454544}, {"Dag": 325, "MS_NUM_DEATHS": 293.27272727272725}, {"Dag": 326, "MS_NUM_DEATHS": 293.27272727272725}, {"Dag": 327, "MS_NUM_DEATHS": 294.0}, {"Dag": 328, "MS_NUM_DEATHS": 296.1818181818182}, {"Dag": 329, "MS_NUM_DEATHS": 291.90909090909093}, {"Dag": 330, "MS_NUM_DEATHS": 288.0}, {"Dag": 331, "MS_NUM_DEATHS": 296.3636363636364}, {"Dag": 332, "MS_NUM_DEATHS": 291.72727272727275}, {"Dag": 333, "MS_NUM_DEATHS": 297.1818181818182}, {"Dag": 334, "MS_NUM_DEATHS": 298.54545454545456}, {"Dag": 335, "MS_NUM_DEATHS": 299.27272727272725}, {"Dag": 336, "MS_NUM_DEATHS": 296.6363636363636}, {"Dag": 337, "MS_NUM_DEATHS": 297.0}, {"Dag": 338, "MS_NUM_DEATHS": 307.6363636363636}, {"Dag": 339, "MS_NUM_DEATHS": 301.0}, {"Dag": 340, "MS_NUM_DEATHS": 307.54545454545456}, {"Dag": 341, "MS_NUM_DEATHS": 307.27272727272725}, {"Dag": 342, "MS_NUM_DEATHS": 307.90909090909093}, {"Dag": 343, "MS_NUM_DEATHS": 314.54545454545456}, {"Dag": 344, "MS_NUM_DEATHS": 306.54545454545456}, {"Dag": 345, "MS_NUM_DEATHS": 314.72727272727275}, {"Dag": 346, "MS_NUM_DEATHS": 307.54545454545456}, {"Dag": 347, "MS_NUM_DEATHS": 312.90909090909093}, {"Dag": 348, "MS_NUM_DEATHS": 309.3636363636364}, {"Dag": 349, "MS_NUM_DEATHS": 316.09090909090907}, {"Dag": 350, "MS_NUM_DEATHS": 319.09090909090907}, {"Dag": 351, "MS_NUM_DEATHS": 305.45454545454544}, {"Dag": 352, "MS_NUM_DEATHS": 323.09090909090907}, {"Dag": 353, "MS_NUM_DEATHS": 328.8181818181818}, {"Dag": 354, "MS_NUM_DEATHS": 318.6363636363636}, {"Dag": 355, "MS_NUM_DEATHS": 317.1818181818182}, {"Dag": 356, "MS_NUM_DEATHS": 331.54545454545456}, {"Dag": 357, "MS_NUM_DEATHS": 320.27272727272725}, {"Dag": 358, "MS_NUM_DEATHS": 323.0}, {"Dag": 359, "MS_NUM_DEATHS": 314.27272727272725}, {"Dag": 360, "MS_NUM_DEATHS": 316.3636363636364}, {"Dag": 361, "MS_NUM_DEATHS": 319.54545454545456}, {"Dag": 362, "MS_NUM_DEATHS": 324.72727272727275}, {"Dag": 363, "MS_NUM_DEATHS": 329.72727272727275}, {"Dag": 364, "MS_NUM_DEATHS": 330.8181818181818}, {"Dag": 365, "MS_NUM_DEATHS": 329.8181818181818}, {"Dag": 366, "MS_NUM_DEATHS": 328.0}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Calculate the day-by-day change</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -696,26 +777,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data</span>
-<span class="n">dead_2008_2018</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_plot</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Dag'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'MS_NUM_DEATHS'</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the day-by-day change</span>
-<span class="n">df_deaths</span><span class="p">[</span><span class="s1">'Nieuwe covid-19 Sterfgevallen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_deaths</span><span class="p">[</span><span class="s1">'Overlijdens'</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_deaths</span><span class="p">[</span><span class="s1">'Nieuwe covid-19 Sterfgevallen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_deaths</span><span class="p">[</span><span class="s1">'Overlijdens'</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -802,12 +864,12 @@ memory usage: 2.5 KB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-514a936351f74a048d75534fe00faaa2"></div>
+<div id="altair-viz-e2df39decfdb49dbbab7703a97daee72"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-514a936351f74a048d75534fe00faaa2") {
-      outputDiv = document.getElementById("altair-viz-514a936351f74a048d75534fe00faaa2");
+    if (outputDiv.id !== "altair-viz-e2df39decfdb49dbbab7703a97daee72") {
+      outputDiv = document.getElementById("altair-viz-e2df39decfdb49dbbab7703a97daee72");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -864,7 +926,7 @@ memory usage: 2.5 KB
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we add average deaths per day in the last 10 year to the plot.Obviously, data form 16-17-18 April 2020 is not final yet.</p>
+<p>Now we add average deaths per day in the last 10 year to the plot.</p>
 
 </div>
 </div>
@@ -891,12 +953,12 @@ memory usage: 2.5 KB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-d846bed0d33044bab3261aa81c282238"></div>
+<div id="altair-viz-e389da783b5f432c893904448a0259dc"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-d846bed0d33044bab3261aa81c282238") {
-      outputDiv = document.getElementById("altair-viz-d846bed0d33044bab3261aa81c282238");
+    if (outputDiv.id !== "altair-viz-e389da783b5f432c893904448a0259dc") {
+      outputDiv = document.getElementById("altair-viz-e389da783b5f432c893904448a0259dc");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -1055,7 +1117,7 @@ memory usage: 2.5 KB
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The column 'DT_DATE' is a string. We convert it to a datatime.</p>
+<p>The column 'DT_DATE' is a string. We convert it to a datatime so we can add it to the tooltip.</p>
 
 </div>
 </div>
@@ -1128,12 +1190,12 @@ memory usage: 2.5 KB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-ba6b7cb093a84a7180b4fdc8c1efbe8f"></div>
+<div id="altair-viz-e3f7bc57703a42be9e6d0bd4da5fe8ee"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ba6b7cb093a84a7180b4fdc8c1efbe8f") {
-      outputDiv = document.getElementById("altair-viz-ba6b7cb093a84a7180b4fdc8c1efbe8f");
+    if (outputDiv.id !== "altair-viz-e3f7bc57703a42be9e6d0bd4da5fe8ee") {
+      outputDiv = document.getElementById("altair-viz-e3f7bc57703a42be9e6d0bd4da5fe8ee");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -1377,12 +1439,12 @@ memory usage: 2.5 KB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-028de6d321dc4801a7f840324e2fd478"></div>
+<div id="altair-viz-506121b9b6ff446a9f5a409055e48de0"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-028de6d321dc4801a7f840324e2fd478") {
-      outputDiv = document.getElementById("altair-viz-028de6d321dc4801a7f840324e2fd478");
+    if (outputDiv.id !== "altair-viz-506121b9b6ff446a9f5a409055e48de0") {
+      outputDiv = document.getElementById("altair-viz-506121b9b6ff446a9f5a409055e48de0");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -1436,6 +1498,14 @@ memory usage: 2.5 KB
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Obviously, data form 16-17-18 April 2020 is not final yet. Also, the amounts are smaller then those from JHU.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1818,12 +1888,12 @@ memory usage: 2.5 KB
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-e817b7f6b62645d3b6fd74f33add6665"></div>
+<div id="altair-viz-470e5fa114ed4aa6bc4bd92af953facb"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-e817b7f6b62645d3b6fd74f33add6665") {
-      outputDiv = document.getElementById("altair-viz-e817b7f6b62645d3b6fd74f33add6665");
+    if (outputDiv.id !== "altair-viz-470e5fa114ed4aa6bc4bd92af953facb") {
+      outputDiv = document.getElementById("altair-viz-470e5fa114ed4aa6bc4bd92af953facb");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
