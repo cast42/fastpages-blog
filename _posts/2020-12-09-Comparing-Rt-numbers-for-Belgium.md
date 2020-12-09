@@ -3,18 +3,16 @@ toc: true
 layout: post
 description: Links to several estimations of the effective reproduction number for COVID-19 in Belgium
 categories: [covid19]
-title: Comparing Rt number for Belgium
+title: Comparing Rt numbers for Belgium on 09-12-2020
 ---
-# Where can we find Effective reproduction numbers for Belgium ?
-
 
 
 |Model|Based on|URL|Rt|Date|
 |-----|--------|---|--|-------|
-|by Niel Hens|Cases|https://gjbex.github.io/DSI_UHasselt_covid_dashboard/|0.96|5/12/20|
-|[Cori et al. (2013)](https://academic.oup.com/aje/article/178/9/1505/89262)|Hospitalisations|https://covid-19.sciensano.be/sites/default/files/Covid19/COVID-19_Weekly_report_NL.pdf|0.798|27/11/20 till 3/12/20|
-|[RKI](https://staff.math.su.se/hoehle/blog/2020/04/15/effectiveR0.html)|Hospitalisations|https://datastudio.google.com/embed/u/0/reporting/c14a5cfc-cab7-4812-848c-0369173148ab/page/ZwmOB|0.97|9/12|
+|by Niel Hens|Cases|[https://gjbex.github.io/DSI_UHasselt_covid_dashboard/](https://gjbex.github.io/DSI_UHasselt_covid_dashboard/)|0.96|5/12/20|
+|[Cori et al. (2013)](https://academic.oup.com/aje/article/178/9/1505/89262)|Hospitalisations|[https://covid-19.sciensano.be/sites/default/files/Covid19/COVID-19_Weekly_report_NL.pdf](https://covid-19.sciensano.be/sites/default/files/Covid19/COVID-19_Weekly_report_NL.pdf)|0.798|27/11/20 till 3/12/20|
+|[RKI](https://staff.math.su.se/hoehle/blog/2020/04/15/effectiveR0.html)|Hospitalisations|[https://datastudio.google.com/embed/u/0/reporting/c14a5cfc-cab7-4812-848c-0369173148ab/page/ZwmOB](https://datastudio.google.com/embed/u/0/reporting/c14a5cfc-cab7-4812-848c-0369173148ab/page/ZwmOB)|0.97|9/12|
 |[rtlive](https://rtlive.de/global.html#faqModal)|Cases|https://rtlive.de/global.html|0.80|
-|[epiforecast](https://epiforecasts.io/covid/methods)|Cases and Deaths|https://epiforecasts.io/covid/posts/national/belgium/|0.5|2020-12-07|
-|[Cori et al. (2013)](https://ibz-shiny.ethz.ch/covid-19-re/methods.pdf)|Cases|https://ibz-shiny.ethz.ch/covid-19-re/|1.01|2020-11-24|
-|[Cori et al. (2013)](https://ibz-shiny.ethz.ch/covid-19-re/methods.pdf)|Hospitalisations|https://ibz-shiny.ethz.ch/covid-19-re/|0.84|2020-11-24|
+|[epiforecast](https://epiforecasts.io/covid/methods)|Cases and Deaths|[https://epiforecasts.io/covid/posts/national/belgium/](https://epiforecasts.io/covid/posts/national/belgium/)|0.5|2020-12-07|
+|[Cori et al. (2013)](https://ibz-shiny.ethz.ch/covid-19-re/methods.pdf)|Cases|[https://ibz-shiny.ethz.ch/covid-19-re/](https://ibz-shiny.ethz.ch/covid-19-re/)|1.01|2020-11-24|
+|[Cori et al. (2013)](https://ibz-shiny.ethz.ch/covid-19-re/methods.pdf)|Hospitalisations|[https://ibz-shiny.ethz.ch/covid-19-re/](https://ibz-shiny.ethz.ch/covid-19-re/)|0.84|2020-11-24|
