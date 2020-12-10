@@ -9,7 +9,7 @@ title: Comparing Rt numbers for Belgium on 09-12-2020
 
 |Model|Based on|URL|Rt|Date|
 |-----|--------|---|--|-------|
-|by Niel Hens|Cases|[https://gjbex.github.io/DSI_UHasselt_covid_dashboard/](https://gjbex.github.io/DSI_UHasselt_covid_dashboard/)|0.96|20-12-5|
+|[by Niel Hens](https://www.uhasselt.be/UH/DSI/Research/DSI-covid-19-en/What-kind-of-models-do-we-use)|Cases|[https://gjbex.github.io/DSI_UHasselt_covid_dashboard/](https://gjbex.github.io/DSI_UHasselt_covid_dashboard/)|0.96|20-12-5|
 |[Cori et al. (2013)](https://academic.oup.com/aje/article/178/9/1505/89262)|Hospitalisations|[https://covid-19.sciensano.be/sites/default/files/Covid19/COVID-19_Weekly_report_NL.pdf](https://covid-19.sciensano.be/sites/default/files/Covid19/COVID-19_Weekly_report_NL.pdf)|0.798|20-11-27/ till 20-12-3|
 |[RKI](https://staff.math.su.se/hoehle/blog/2020/04/15/effectiveR0.html)|Hospitalisations|[https://datastudio.google.com/embed/u/0/reporting/c14a5cfc-cab7-4812-848c-0369173148ab/page/ZwmOB](https://datastudio.google.com/embed/u/0/reporting/c14a5cfc-cab7-4812-848c-0369173148ab/page/ZwmOB)|0.97|20-12-09|
 |[rtlive](https://rtlive.de/global.html#faqModal)|Cases|[https://rtlive.de/global.html](https://rtlive.de/global.html)|0.80|20-12-09|
