@@ -5,10 +5,9 @@ permalink: /about/
 ---
 
 My name is Lode Nachtergaele.
-I'm an engineer by training, and currently hold the position as data scientist
+I'm an engineer by training, and currently hold the position as machine learning engineer
 at
-[Colruyt Group](https://www.colruytgroup.com/wps/portal/cg/en/home) (a retailer in Belgium), where I spend time on
-writing notebooks in Python.
+[Dataroots.io](https://dataroots.io) (AI & data-driven solutions for our clients)/
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
