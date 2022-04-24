@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Bar chart made in Altair with Financial Times style | Blog of cast42</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Bar chart made in Altair with Financial Times style" />
+<meta name="author" content="Lode Nachtergaele" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="#30DayChartChallenge #Day24 Themeday: Financial times" />
+<meta property="og:description" content="#30DayChartChallenge #Day24 Themeday: Financial times" />
+<link rel="canonical" href="https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html" />
+<meta property="og:url" content="https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html" />
+<meta property="og:site_name" content="Blog of cast42" />
+<meta property="og:image" content="https://cast42.github.io/blog/images/barchart_FT_style_altair.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-24T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Lode Nachtergaele"},"headline":"Bar chart made in Altair with Financial Times style","description":"#30DayChartChallenge #Day24 Themeday: Financial times","datePublished":"2022-04-24T00:00:00-05:00","dateModified":"2022-04-24T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html"},"image":"https://cast42.github.io/blog/images/barchart_FT_style_altair.png","url":"https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://cast42.github.io/blog/feed.xml" title="Blog of cast42" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-156881747-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Bar chart made in Altair with Financial Times style | Blog of cast42</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Bar chart made in Altair with Financial Times style" />
+<meta name="author" content="Lode Nachtergaele" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="#30DayChartChallenge #Day24 Themeday: Financial times" />
+<meta property="og:description" content="#30DayChartChallenge #Day24 Themeday: Financial times" />
+<link rel="canonical" href="https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html" />
+<meta property="og:url" content="https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html" />
+<meta property="og:site_name" content="Blog of cast42" />
+<meta property="og:image" content="https://cast42.github.io/blog/images/barchart_FT_style_altair.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-24T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Lode Nachtergaele"},"headline":"Bar chart made in Altair with Financial Times style","description":"#30DayChartChallenge #Day24 Themeday: Financial times","datePublished":"2022-04-24T00:00:00-05:00","dateModified":"2022-04-24T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html"},"image":"https://cast42.github.io/blog/images/barchart_FT_style_altair.png","url":"https://cast42.github.io/blog/cast42/altair/2022/04/24/FT-barchart-altair.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://cast42.github.io/blog/feed.xml" title="Blog of cast42" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-156881747-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Blog of cast42</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Bar chart made in Altair with Financial Times style</h1><p class="page-description">#30DayChartChallenge #Day24 Themeday: Financial times</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-24T00:00:00-05:00" itemprop="datePublished">
+        Apr 24, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Lode Nachtergaele</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#cast42">cast42</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#altair">altair</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/cast42/blog/tree/master/_notebooks/2022-04-24-FT-barchart-altair.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/cast42/blog/master?filepath=_notebooks%2F2022-04-24-FT-barchart-altair.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/cast42/blog/blob/master/_notebooks/2022-04-24-FT-barchart-altair.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Trying-to-use-the-offical-Financial-Times-fonts">Trying to use the offical Financial Times fonts </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-24-FT-barchart-altair.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The #30DayChartChallenge Day 24 calls for Financial Times themed charts. The bar chart that I will try to reproduce in Altair was published in the article: <a href="https://www.ft.com/content/220db8f2-2980-410f-aab8-f471369ac3cf">"Financial warfare: will there be a backlash against the dollar?"</a></p>
+<p>This is the graph (without FT background) to we want to reproduce:
+<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd6c748xw2pzm8.cloudfront.net%2Fprod%2Ff4926320-b74a-11ec-ac86-5174c5daccd3-standard.png?dpr=1&amp;fit=scale-down&amp;quality=highest&amp;source=next&amp;width=700" alt="" title="Credit: ft.com"></p>
+<p>I digitized the heights of yhe bars with <a href="https://apps.automeris.io/wpd/">WebplotDigitizer</a>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">"""Bar0, 3.23</span>
+<span class="s2">Bar1, 1.27</span>
+<span class="s2">Bar2, 1.02</span>
+<span class="s2">Bar3, 0.570</span>
+<span class="s2">Bar4, 0.553</span>
+<span class="s2">Bar5, 0.497</span>
+<span class="s2">Bar6, 0.467</span>
+<span class="s2">Bar7, 0.440</span>
+<span class="s2">Bar8, 0.420</span>
+<span class="s2">Bar9, 0.413</span>
+<span class="s2">Bar10, 0.317</span>
+<span class="s2">Bar11, 0.0433"""</span>
+
+<span class="n">data_values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I put the values into a Pandas dataframe:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'label'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'China'</span><span class="p">,</span> <span class="s1">'Japan'</span><span class="p">,</span> <span class="s1">'Switserland'</span><span class="p">,</span> <span class="s1">'India'</span><span class="p">,</span> <span class="s1">'Taiwan'</span><span class="p">,</span> <span class="s1">'Hong Kong'</span><span class="p">,</span> <span class="s1">'Russia'</span><span class="p">,</span> <span class="s1">'South Korea'</span><span class="p">,</span> <span class="s1">'Saudi Arabia'</span><span class="p">,</span> <span class="s1">'Singapore'</span><span class="p">,</span> <span class="s1">'Eurozone'</span><span class="p">,</span> <span class="s1">'US'</span><span class="p">],</span>
+    <span class="s1">'val'</span><span class="p">:</span> <span class="n">data_values</span>
+<span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we build the graph and alter it's style to resemble the Financial Times style:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">xOffset</span><span class="o">=-</span><span class="mi">112</span><span class="p">,</span> <span class="n">yOffset</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'#174C7F'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'val:Q'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labelColor</span><span class="o">=</span><span class="s1">'darkgray'</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'label:N'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">=</span><span class="s2">"val:Q"</span><span class="p">,</span>  <span class="c1"># The field to use for the sort</span>
+            <span class="n">op</span><span class="o">=</span><span class="s2">"sum"</span><span class="p">,</span>  <span class="c1"># The operation to run on the field prior to sorting</span>
+            <span class="n">order</span><span class="o">=</span><span class="s2">"ascending"</span>  <span class="c1"># The order to sort in</span>
+        <span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">domainColor</span><span class="o">=</span><span class="s1">'lightgray'</span><span class="p">,</span>
+                         <span class="n">labelFontSize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">labelColor</span><span class="o">=</span><span class="s1">'darkgray'</span><span class="p">,</span> <span class="n">labelPadding</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                         <span class="n">labelFontStyle</span><span class="o">=</span><span class="s1">'Bold'</span><span class="p">,</span>
+                         <span class="n">tickSize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">tickColor</span><span class="o">=</span><span class="s1">'lightgray'</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="p">{</span>
+      <span class="s2">"text"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"The biggest holders of FX reserves"</span><span class="p">,</span> <span class="p">],</span> 
+      <span class="s2">"subtitle"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Official foreign exchange reserve (Jan 2022, $tn)"</span><span class="p">],</span>
+      <span class="s2">"align"</span><span class="p">:</span> <span class="s1">'left'</span><span class="p">,</span>
+      <span class="s2">"anchor"</span><span class="p">:</span> <span class="s1">'start'</span>
+    <span class="p">},</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">512</span>
+<span class="p">)</span>
+
+<span class="n">source_text</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">"values"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Source: IMF, © FT"</span><span class="p">}]}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">dx</span><span class="o">=-</span><span class="mi">140</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'darkgrey'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">"text:N"</span>
+<span class="p">)</span>
+
+<span class="c1"># from https://stackoverflow.com/questions/57244390/has-anyone-figured-out-a-workaround-to-add-a-subtitle-to-an-altair-generated-cha</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">square</span><span class="p">,</span>
+    <span class="n">bars</span><span class="p">,</span>
+    <span class="n">source_text</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_concat</span><span class="p">(</span>
+    <span class="n">spacing</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+    <span class="n">background</span><span class="o">=</span><span class="s1">'#fff1e5'</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Remove box around graph</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="c1"># font='metricweb',</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span>
+    <span class="n">fontWeight</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">subtitleFontSize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span>
+    <span class="n">subtitleColor</span><span class="o">=</span><span class="s1">'darkgray'</span><span class="p">,</span>
+    <span class="n">subtitleFontWeight</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">subtitlePadding</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">offset</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+    <span class="n">dy</span><span class="o">=</span><span class="mi">40</span>
+<span class="p">)</span>
+
+<span class="n">chart</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-80793582b97e479ca5b66521e9670b81"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-80793582b97e479ca5b66521e9670b81") {
+      outputDiv = document.getElementById("altair-viz-80793582b97e479ca5b66521e9670b81");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "background": "#fff1e5", "title": {"dy": 40, "fontSize": 22, "fontWeight": 400, "offset": 80, "subtitleColor": "darkgray", "subtitleFontSize": 18, "subtitleFontWeight": 400, "subtitlePadding": 15}}, "vconcat": [{"data": {"name": "empty"}, "mark": {"type": "rect", "color": "black", "height": 5, "width": 80, "xOffset": -112, "yOffset": 10}}, {"data": {"name": "data-df71ec9f3957c236109e455bd72c3eb3"}, "mark": {"type": "bar", "color": "#174C7F", "size": 30}, "encoding": {"x": {"axis": {"domain": false, "labelColor": "darkgray", "tickCount": 6}, "field": "val", "scale": {"domain": [0, 3.0]}, "title": "", "type": "quantitative"}, "y": {"axis": {"domainColor": "lightgray", "labelColor": "darkgray", "labelFontSize": 18, "labelFontStyle": "Bold", "labelPadding": 5, "tickColor": "lightgray", "tickSize": 18}, "field": "label", "sort": {"field": "val:Q", "op": "sum", "order": "ascending"}, "title": "", "type": "nominal"}}, "height": 512, "title": {"text": ["The biggest holders of FX reserves"], "subtitle": ["Official foreign exchange reserve (Jan 2022, $tn)"], "align": "left", "anchor": "start"}, "width": 700}, {"data": {"name": "data-0a30ac8e3706e989ddfc777785723af1"}, "mark": {"type": "text", "align": "left", "color": "darkgrey", "dx": -140, "size": 12}, "encoding": {"text": {"field": "text", "type": "nominal"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"empty": [{}], "data-df71ec9f3957c236109e455bd72c3eb3": [{"label": "China", "val": 3.23}, {"label": "Japan", "val": 1.27}, {"label": "Switserland", "val": 1.02}, {"label": "India", "val": 0.57}, {"label": "Taiwan", "val": 0.553}, {"label": "Hong Kong", "val": 0.497}, {"label": "Russia", "val": 0.467}, {"label": "South Korea", "val": 0.44}, {"label": "Saudi Arabia", "val": 0.42}, {"label": "Singapore", "val": 0.413}, {"label": "Eurozone", "val": 0.317}, {"label": "US", "val": 0.0433}], "data-0a30ac8e3706e989ddfc777785723af1": [{"text": "Source: IMF, \u00a9 FT"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Trying-to-use-the-offical-Financial-Times-fonts">
+<a class="anchor" href="#Trying-to-use-the-offical-Financial-Times-fonts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trying to use the offical Financial Times fonts<a class="anchor-link" href="#Trying-to-use-the-offical-Financial-Times-fonts"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The chart looks quit similar to the original. Biggest difference is the typography. The Financial times uses its own Metric Web and Financier Display Web fonts and Altair can only use fonts available in the browser.</p>
+<p>The fonts could be made available via CSS:</p>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">'metricweb'</span><span class="o">;</span>
+    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Regular.woff2'</span><span class="err">'</span>
+<span class="o">);</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">google.colab.output</span> <span class="kn">import</span> <span class="n">_publish</span> <span class="k">as</span> <span class="n">publish</span>
+<span class="n">publish</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">"""@font-face {</span>
+<span class="s2">    font-family: 'metricweb', sans-serif;</span>
+<span class="s2">    src: url('https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Regular.woff2') format('woff2');</span>
+<span class="s2">}"""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>@font-face {
+    font-family: 'metricweb', sans-serif;
+    src: url('https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Regular.woff2') format('woff2');
+}</style>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">xOffset</span><span class="o">=-</span><span class="mi">112</span><span class="p">,</span> <span class="n">yOffset</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'#174C7F'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'val:Q'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">tickCount</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'label:N'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">EncodingSortField</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">=</span><span class="s2">"val:Q"</span><span class="p">,</span>  <span class="c1"># The field to use for the sort</span>
+            <span class="n">op</span><span class="o">=</span><span class="s2">"sum"</span><span class="p">,</span>  <span class="c1"># The operation to run on the field prior to sorting</span>
+            <span class="n">order</span><span class="o">=</span><span class="s2">"ascending"</span>  <span class="c1"># The order to sort in</span>
+        <span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">domainColor</span><span class="o">=</span><span class="s1">'lightgray'</span><span class="p">,</span>
+                         <span class="n">labelFontSize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">labelColor</span><span class="o">=</span><span class="s1">'darkgray'</span><span class="p">,</span> <span class="n">labelPadding</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                         <span class="n">labelFontStyle</span><span class="o">=</span><span class="s1">'Bold'</span><span class="p">,</span>
+                         <span class="n">tickSize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">tickColor</span><span class="o">=</span><span class="s1">'lightgray'</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="p">{</span>
+      <span class="s2">"text"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"The biggest holders of FX reserves"</span><span class="p">,</span> <span class="p">],</span> 
+      <span class="s2">"subtitle"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Official foreign exchange reserve (Jan 2022, $tn)"</span><span class="p">],</span>
+      <span class="s2">"align"</span><span class="p">:</span> <span class="s1">'left'</span><span class="p">,</span>
+      <span class="s2">"anchor"</span><span class="p">:</span> <span class="s1">'start'</span>
+    <span class="p">},</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">512</span>
+<span class="p">)</span>
+
+<span class="n">source_text</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">"values"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Source: IMF, © FT"</span><span class="p">}]}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">dx</span><span class="o">=-</span><span class="mi">140</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'darkgrey'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">"text:N"</span>
+<span class="p">)</span>
+
+<span class="c1"># from https://stackoverflow.com/questions/57244390/has-anyone-figured-out-a-workaround-to-add-a-subtitle-to-an-altair-generated-cha</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">square</span><span class="p">,</span>
+    <span class="n">bars</span><span class="p">,</span>
+    <span class="n">source_text</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_concat</span><span class="p">(</span>
+    <span class="n">spacing</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+    <span class="n">background</span><span class="o">=</span><span class="s1">'#fff1e5'</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">stroke</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Remove box around graph</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">font</span><span class="o">=</span><span class="s1">'metricweb'</span><span class="p">,</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span>
+    <span class="n">fontWeight</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">subtitleFont</span><span class="o">=</span><span class="s1">'metricweb'</span><span class="p">,</span>
+    <span class="n">subtitleFontSize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span>
+    <span class="n">subtitleColor</span><span class="o">=</span><span class="s1">'darkgray'</span><span class="p">,</span>
+    <span class="n">subtitleFontWeight</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">subtitlePadding</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">offset</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+    <span class="n">dy</span><span class="o">=</span><span class="mi">40</span>
+<span class="p">)</span>
+
+<span class="n">chart</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-4e3b9cb8f81842a7953a6fb0fb834a7f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4e3b9cb8f81842a7953a6fb0fb834a7f") {
+      outputDiv = document.getElementById("altair-viz-4e3b9cb8f81842a7953a6fb0fb834a7f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300, "stroke": null}, "background": "#fff1e5", "title": {"dy": 40, "font": "metricweb", "fontSize": 22, "fontWeight": 400, "offset": 80, "subtitleColor": "darkgray", "subtitleFont": "metricweb", "subtitleFontSize": 18, "subtitleFontWeight": 400, "subtitlePadding": 15}}, "vconcat": [{"data": {"name": "empty"}, "mark": {"type": "rect", "color": "black", "height": 5, "width": 80, "xOffset": -112, "yOffset": 10}}, {"data": {"name": "data-df71ec9f3957c236109e455bd72c3eb3"}, "mark": {"type": "bar", "color": "#174C7F", "size": 30}, "encoding": {"x": {"axis": {"domain": false, "tickCount": 6}, "field": "val", "scale": {"domain": [0, 3.0]}, "title": "", "type": "quantitative"}, "y": {"axis": {"domainColor": "lightgray", "labelColor": "darkgray", "labelFontSize": 18, "labelFontStyle": "Bold", "labelPadding": 5, "tickColor": "lightgray", "tickSize": 18}, "field": "label", "sort": {"field": "val:Q", "op": "sum", "order": "ascending"}, "title": "", "type": "nominal"}}, "height": 512, "title": {"text": ["The biggest holders of FX reserves"], "subtitle": ["Official foreign exchange reserve (Jan 2022, $tn)"], "align": "left", "anchor": "start"}, "width": 700}, {"data": {"name": "data-0a30ac8e3706e989ddfc777785723af1"}, "mark": {"type": "text", "align": "left", "color": "darkgrey", "dx": -140, "size": 12}, "encoding": {"text": {"field": "text", "type": "nominal"}}}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"empty": [{}], "data-df71ec9f3957c236109e455bd72c3eb3": [{"label": "China", "val": 3.23}, {"label": "Japan", "val": 1.27}, {"label": "Switserland", "val": 1.02}, {"label": "India", "val": 0.57}, {"label": "Taiwan", "val": 0.553}, {"label": "Hong Kong", "val": 0.497}, {"label": "Russia", "val": 0.467}, {"label": "South Korea", "val": 0.44}, {"label": "Saudi Arabia", "val": 0.42}, {"label": "Singapore", "val": 0.413}, {"label": "Eurozone", "val": 0.317}, {"label": "US", "val": 0.0433}], "data-0a30ac8e3706e989ddfc777785723af1": [{"text": "Source: IMF, \u00a9 FT"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the moment the font does not look at all to be Metric web :-(</p>
+<p>A second minor difference are the alignment of the 0.0 and 3.0 labels of the x-axis. In the orginal, those labels are centered. Altair aligns 0.0 to the left and 3.0 to the right.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="cast42/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/cast42/altair/2022/04/24/FT-barchart-altair.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Public space to share things of interest with the world.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/cast42" target="_blank" title="cast42"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/cast42" target="_blank" title="cast42"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
