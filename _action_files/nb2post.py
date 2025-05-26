@@ -34,6 +34,7 @@ import re # For regex operations on filenames and content
 import subprocess # If any external commands were needed (currently not used, but kept for future)
 
 # Third-party imports
+import nbformat # For converting dict to NotebookNode
 import nbconvert
 from nbconvert import MarkdownExporter
 from nbconvert.preprocessors import ExtractOutputPreprocessor
@@ -105,7 +106,15 @@ def process_notebooks():
 
         # Read Notebook Content
         with open(notebook_path, 'r', encoding='utf-8') as f:
-            notebook_content = json.load(f)
+            notebook_dict = json.load(f) # Load as dict first
+
+        # Convert the loaded dictionary to an nbformat.NotebookNode object
+        # Using NO_CONVERT as we assume notebooks are in a modern format (e.g., v4)
+        try:
+            notebook_node = nbformat.reads(json.dumps(notebook_dict), as_version=nbformat.NO_CONVERT)
+        except Exception as e:
+            logging.error(f"Error converting dict to NotebookNode for {notebook_path.name}: {e}")
+            continue # Skip this notebook if conversion fails
 
         # Extract Date from Filename
         date_match = re.search(r"(\d{4}-\d{2}-\d{2})", notebook_path.name)
@@ -125,13 +134,14 @@ def process_notebooks():
 
         # --- Metadata Extraction from First Markdown Cell ---
         # Check if the notebook has cells and the first cell is markdown.
-        if (notebook_content['cells'] and 
-            len(notebook_content['cells']) > 0 and 
-            notebook_content['cells'][0]['cell_type'] == 'markdown'):
+        # Now operate on notebook_node.cells
+        if (notebook_node.cells and 
+            len(notebook_node.cells) > 0 and 
+            notebook_node.cells[0]['cell_type'] == 'markdown'):
             first_cell_was_markdown_for_meta = True # Mark that the first cell is being parsed for metadata
             
             # The 'source' of a markdown cell can be a list of strings or a single string. Join if it's a list.
-            first_cell_source = notebook_content['cells'][0]['source']
+            first_cell_source = notebook_node.cells[0]['source']
             if isinstance(first_cell_source, list): # Source is usually a list of lines
                 first_cell_text = "".join(first_cell_source)
             else: # In case it's a single string
@@ -145,20 +155,37 @@ def process_notebooks():
                 elif line_stripped.lower().startswith("- categories:") or \
                      line_stripped.lower().startswith("categories:"):
                     
-                    cat_content_str = line_stripped.split(":", 1)[1].strip()
-                    if cat_content_str.startswith("[") and cat_content_str.endswith("]"):
+                    raw_categories_str = line_stripped.split(":", 1)[1].strip()
+                    parsed_as_json = False # Flag to indicate if JSON parsing was successful
+
+                    if not raw_categories_str: # Handle empty category string
+                        categories = []
+                        parsed_as_json = True # Effectively, yes, resulted in empty list
+                    elif raw_categories_str.startswith('[') and raw_categories_str.endswith(']'):
+                        parsable_category_str = raw_categories_str.replace("'", '"') # Allow single quotes in list
                         try:
-                            # Try parsing as JSON list
-                            cats = json.loads(cat_content_str)
-                            if isinstance(cats, list):
-                                categories = [str(c).strip() for c in cats]
+                            parsed_cats = json.loads(parsable_category_str)
+                            if isinstance(parsed_cats, list):
+                                categories = parsed_cats # Keep as is, will be stringified and stripped later
+                                parsed_as_json = True
+                            else:
+                                # If json.loads results in a single item (e.g. "['foo']" might become "foo")
+                                categories = [parsed_cats] 
+                                parsed_as_json = True
                         except json.JSONDecodeError:
-                            logging.warning(f"Could not parse categories list: '{cat_content_str}' from notebook '{notebook_path.name}'. Trying comma separation.")
-                            # Fallback for non-JSON list but still might be comma separated after brackets removed
-                            categories = [c.strip() for c in cat_content_str.strip("[]").split(',') if c.strip()]
-                    else:
-                        # Fallback for simple comma-separated values if not a list-like string
-                        categories = [c.strip() for c in cat_content_str.split(',') if c.strip()]
+                            logging.warning(
+                                f"Could not parse categories list: '{raw_categories_str}' from notebook "
+                                f"'{notebook_path.name}' using JSON (even after quote replacement). "
+                                f"Falling back to comma separation."
+                            )
+                            # Fall through to comma separation by leaving parsed_as_json = False
+                    
+                    if not parsed_as_json: # If not bracketed, or if JSON parsing failed
+                        categories = [c.strip() for c in raw_categories_str.split(',') if c.strip()]
+                    
+                    # Final cleanup: ensure all are strings and stripped, and filter out empty strings
+                    categories = [str(c).strip() for c in categories if str(c).strip()]
+                    
                     # Categories are assumed to be defined on a single line and only once in the first cell.
                     break 
 
@@ -167,16 +194,16 @@ def process_notebooks():
         # --- Prepare Notebook for Conversion ---
         # If the first markdown cell was used for metadata, it's removed from the content
         # before converting to prevent metadata (title, categories) from appearing in the post body.
-        # A deepcopy is used to avoid modifying the original notebook_content object.
-        content_to_convert = notebook_content
+        # A deepcopy of the NotebookNode is used.
+        node_to_convert = notebook_node 
         if first_cell_was_markdown_for_meta:
             logging.info(f"First cell was markdown for metadata, removing it from conversion input for {notebook_path.name}")
-            temp_notebook_content = copy.deepcopy(notebook_content)
-            if temp_notebook_content['cells']: # Double-check cells exist before pop
-                temp_notebook_content['cells'].pop(0) # Remove the first cell
-            content_to_convert = temp_notebook_content
+            temp_notebook_node = copy.deepcopy(notebook_node)
+            if temp_notebook_node.cells: # Double-check cells exist before pop
+                temp_notebook_node.cells.pop(0) # Remove the first cell from the NotebookNode
+            node_to_convert = temp_notebook_node
         else:
-            logging.info(f"First cell not markdown or no cells, using original content for {notebook_path.name}")
+            logging.info(f"First cell not markdown or no cells, using original NotebookNode for {notebook_path.name}")
 
         # --- Configure nbconvert for Markdown Export and Image Extraction ---
         nb_config = NbConvertConfig()
@@ -191,11 +218,11 @@ def process_notebooks():
 
         # --- Perform Notebook to Markdown Conversion ---
         try:
-            # `from_notebook_node` converts the notebook dictionary directly.
+            # `from_notebook_node` now receives a NotebookNode object.
             # `resources` will contain extracted files, like images.
-            markdown_body, resources = exporter.from_notebook_node(content_to_convert)
+            markdown_body, resources = exporter.from_notebook_node(node_to_convert)
         except Exception as e:
-            logging.error(f"Error converting notebook {notebook_path.name}: {e}")
+            logging.error(f"Error converting notebook {notebook_path.name} with nbconvert: {e}")
             continue # Skip to the next notebook
 
         # --- Save Extracted Files (Images) ---

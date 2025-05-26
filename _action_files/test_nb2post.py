@@ -30,7 +30,8 @@ SAMPLE_NOTEBOOK_CONTENT = {
             "metadata": {},
             "source": [
                 "# Test Title\n",
-                "- categories: [test, sample]\n",
+                # Focused test for list parsing with mixed single and double quotes
+                "- categories: ['test-single', \"double-quote\", 'mixed\"quote', \"another'valid\"]\n",
                 "Some other descriptive text in the first cell."
             ]
         },
@@ -132,10 +133,22 @@ class TestNb2Post(unittest.TestCase):
         # Frontmatter Checks
         self.assertIn('title: "Test Title"', md_content)
         self.assertIn('date: "2023-01-01"', md_content)
-        # Check for categories as a YAML list: categories: "[test, sample]" or categories: ['test', 'sample']
-        # The current implementation produces: categories: ["test", "sample"]
-        self.assertTrue(re.search(r"categories:\s*\[\s*\"test\"\s*,\s*\"sample\"\s*\]", md_content), "Categories not found or not in correct format.")
-        
+        # Check for categories as a YAML list.
+        # This assertion matches the updated SAMPLE_NOTEBOOK_CONTENT category string:
+        # "- categories: ['test-single', \"double-quote\", 'mixed\"quote', \"another'valid\"]\n"
+        # Expected output in YAML: categories: ["test-single", "double-quote", "mixed\"quote", "another'valid"]
+        # Note: In regex, backslash for " needs to be escaped itself.
+        expected_categories_regex = (
+            r"categories:\s*\[\s*"
+            r"\"test-single\"\s*,\s*"
+            r"\"double-quote\"\s*,\s*"
+            r"\"mixed\\\"quote\"\s*,\s*"  # Matches "mixed\"quote"
+            r"\"another'valid\""          # Matches "another'valid"
+            r"\s*\]"
+        )
+        self.assertTrue(re.search(expected_categories_regex, md_content),
+                        f"Categories not found or not in correct format. Expected regex: {expected_categories_regex}, Actual content: \n{md_content}")
+
         # Check for ISO timestamps for created_at and last_modified
         # Example regex: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+
         self.assertTrue(re.search(r"created_at:\s*\"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+(-[0-9:]+)?\"", md_content), "created_at timestamp missing or not in ISO format.")
@@ -144,8 +157,9 @@ class TestNb2Post(unittest.TestCase):
         # Content Body Checks
         # Metadata lines from the first cell should NOT be in the body
         self.assertNotIn("# Test Title", md_content.split("---", 2)[-1], "Title from first cell found in body.")
-        self.assertNotIn("- categories: [test, sample]", md_content.split("---", 2)[-1], "Categories line from first cell found in body.")
-        # However, "Some other descriptive text in the first cell." SHOULD be removed as it was part of the first cell.
+        # The raw categories line from the source notebook should not be in the body
+        self.assertNotIn("categories: ['test-single', \"double-quote\", 'mixed\"quote', \"another'valid\"]", md_content.split("---", 2)[-1], "Raw categories line from first cell found in body.")
+        # "Some other descriptive text in the first cell." SHOULD be removed.
         self.assertNotIn("Some other descriptive text in the first cell.", md_content.split("---", 2)[-1], "Other text from first (metadata) cell found in body.")
 
         # Content from other cells should be present
