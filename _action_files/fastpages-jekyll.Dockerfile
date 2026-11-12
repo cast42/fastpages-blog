@@ -1,9 +1,9 @@
-# Defines https://hub.docker.com/repository/docker/hamelsmu/fastpages-jekyll
-FROM jekyll/jekyll:4.0.0
+# Active Support 8 requires Ruby 3.2 or newer.
+FROM ruby:3.3
 
-COPY . .
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs \
+    && rm -rf /var/lib/apt/lists/*
 
-# Pre-load all gems into the environment
-RUN chmod -R 777 .
-RUN gem install bundler 
-RUN jekyll build
+WORKDIR /data
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
